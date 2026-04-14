@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard – Sacred Heart Catholic Church</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+  <div class="nav-header">
+    <span class="nav-title">Sacred Heart Parish</span>
+    <button class="nav-toggle" id="nav-toggle">☰</button>
+  </div>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="register.html">Register</a></li>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="dashboard.html">My Dashboard</a></li>
+    <li><a href="admin.html">Admin</a></li>
+  </ul>
+</nav>
+
+
+  <header class="hero small-hero">
+    <h1 class="parish-name">Admin Dashboard</h1>
+    <p class="parish-verse">Sacred Heart of Jesus, have mercy on us.</p>
+  </header>
+
+  <section class="section">
+    <h2 class="section-title">Add Announcement</h2>
+    <form id="announcement-form" class="card">
+      <textarea id="announcement" rows="3" placeholder="Write announcement..."></textarea>
+      <button class="link-button">Save Announcement</button>
+    </form>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Add Current Affairs</h2>
+    <form id="affairs-form" class="card">
+      <textarea id="affairs" rows="3" placeholder="Write parish update..."></textarea>
+      <button class="link-button">Save Update</button>
+    </form>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Upload Homepage Photo</h2>
+    <form id="photo-form" class="card">
+      <input type="file" id="photo">
+      <button class="link-button">Upload Photo</button>
+    </form>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Homepage Link</h2>
+    <form id="link-form" class="card">
+      <input type="text" id="homepage-link-input" placeholder="https://example.com">
+      <button class="link-button">Save Link</button>
+    </form>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Upload Presentation</h2>
+    <form id="presentation-form" class="card">
+      <input type="text" id="presentation-title" placeholder="Presentation title">
+      <input type="file" id="presentation-file">
+      <button class="link-button">Upload Presentation</button>
+    </form>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">User Uploaded Files</h2>
+    <div id="user-files"></div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="admin.js"></script>
+  <script src="nav.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F3E7;
+  color: #3B2F2F;
+}
+
+.hero {
+  text-align: center;
+  padding: 30px 20px;
+  background: #F3E9D2;
+  border-bottom: 4px solid #C9A646;
+}
+
+.hero-image {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.parish-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: #8A1C1C;
+  margin: 0;
+}
+
+.parish-verse {
+  font-style: italic;
+  margin-top: 10px;
+  color: #3B2F2F;
+}
+
+.section {
+  padding: 20px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: #8A1C1C;
+  border-left: 5px solid #C9A646;
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border: 1px solid #C9A646;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.homepage-photo {
+  width: 100%;
+  border: 3px solid #C9A646;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.link-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #8A1C1C;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.small-hero {
+  padding: 20px;
+  background: #F3E9D2;
+  border-bottom: 4px solid #C9A646;
+}
+
+form label {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #C9A646;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form button {
+  margin-top: 20px;
+  width: 100%;
+}
+#user-files a,
+#presentations a {
+  display: block;
+  margin-bottom: 10px;
+  color: #8A1C1C;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#user-files a:hover,
+#presentations a:hover {
+  text-decoration: underline;
+}
+#login-form label {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+}
+
+#login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #C9A646;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #C9A646;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+#user-files a {
+  display: block;
+  margin-bottom: 8px;
+  color: #8A1C1C;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#user-files a:hover {
+  text-decoration: underline;
+}
+/* NAVIGATION */
+.nav {
+  background: #8A1C1C;
+  color: white;
+  padding: 10px 15px;
+  border-bottom: 4px solid #C9A646;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: none;
+  flex-direction: column;
+}
+
+.nav-menu li {
+  margin: 8px 0;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 0;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.nav-menu a:hover {
+  color: #F8F3E7;
+}
+
+/* Desktop */
+@media (min-width: 700px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex !important;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .nav-menu li {
+    margin: 0;
+  }
+
+  .nav-menu a {
+    border: none;
+  }
+}

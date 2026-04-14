@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – Sacred Heart Catholic Church</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <nav class="nav">
+  <div class="nav-header">
+    <span class="nav-title">Sacred Heart Parish</span>
+    <button class="nav-toggle" id="nav-toggle">☰</button>
+  </div>
+
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="register.html">Register</a></li>
+    <li><a href="login.html">Login</a></li>
+    <li><a href="dashboard.html">My Dashboard</a></li>
+    <li><a href="admin.html">Admin</a></li>
+  </ul>
+</nav>
+
+
+  <header class="hero small-hero">
+    <h1 class="parish-name">Parish Login</h1>
+    <p class="parish-verse">“Come to Me, all who labor and are burdened.”</p>
+  </header>
+
+  <section class="section">
+    <form id="login-form" class="card">
+
+      <label>Email</label>
+      <input type="email" id="email" required>
+
+      <label>Password</label>
+      <input type="password" id="password" required>
+
+      <button type="submit" class="link-button">Login</button>
+
+      <p id="message"></p>
+    </form>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="login.js"></script>
+  <script src="nav.js"></script>
+
+
+</body>
+</html>
