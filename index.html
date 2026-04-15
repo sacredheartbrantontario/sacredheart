@@ -47,12 +47,14 @@
   <section class="section">
     <h2 class="section-title">Parish Life & Current Affairs</h2>
     <div id="affairs-list"></div>
+    <div id="public-affairs"></div>
   </section>
 
   <!-- HOMEPAGE PHOTO -->
   <section class="section">
     <h2 class="section-title">Featured Photo</h2>
     <img id="homepage-photo" class="homepage-photo" src="" alt="Parish Photo">
+    <div id="homepage-images"></div>
   </section>
 
   <!-- IMPORTANT LINK -->
@@ -61,12 +63,11 @@
     <a id="homepage-link" class="link-button" href="#" target="_blank">Visit Link</a>
   </section>
 
-  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <!-- SCRIPTS -->
   <script src="nav.js"></script>
   <script src="homepage.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script>
   const supabaseUrl = "https://wlzlysgufuucqyepsyvb.supabase.co"; 
   const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indsemx5c2d1ZnV1Y3F5ZXBzeXZiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjEzODM5NiwiZXhwIjoyMDkxNzE0Mzk2fQ.msih2agjusdG31IGDIWzb3umRyFZbA8WGPgVOEfq_go"; 
@@ -91,6 +92,49 @@
 
   loadPublicAnnouncements();
 </script>
+
+<script>
+async function loadPublicAffairs() {
+  const { data } = await client
+    .from("affairs")
+    .select("update")
+    .not("update", "is", null);
+
+  const container = document.getElementById("public-affairs");
+  container.innerHTML = "";
+
+  data.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "affair-card";
+    div.innerText = item.update;
+    container.appendChild(div);
+  });
+}
+
+loadPublicAffairs();
+</script>
+
+<script>
+async function loadHomepageImagesPublic() {
+  const { data } = await client
+    .from("homepage_images")
+    .select("file_url");
+
+  const container = document.getElementById("homepage-images");
+  container.innerHTML = "";
+
+  data.forEach(item => {
+    const img = document.createElement("img");
+    img.src = item.file_url;
+    img.className = "homepage-img";
+    container.appendChild(img);
+  });
+}
+
+loadHomepageImagesPublic();
+</script>
+
+
 
 
 </body>
