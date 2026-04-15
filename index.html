@@ -95,18 +95,25 @@
 
 <script>
 async function loadPublicAffairs() {
-  const { data } = await client
+  const { data, error } = await client
     .from("affairs")
-    .select("update")
-    .not("update", "is", null);
+    .select("*");
+
+  console.log("Affairs error:", error);
+  console.log("Affairs data:", data);
 
   const container = document.getElementById("public-affairs");
   container.innerHTML = "";
 
+  if (!data || data.length === 0) {
+    container.innerHTML = "<p>No current affairs available.</p>";
+    return;
+  }
+
   data.forEach(item => {
     const div = document.createElement("div");
     div.className = "affair-card";
-    div.innerText = item.update;
+    div.innerText = item.update; // we will adjust this if column name is different
     container.appendChild(div);
   });
 }
