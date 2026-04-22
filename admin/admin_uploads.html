@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin – User Uploads</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="adminHeader"></div>
+
+<h2>User Uploads</h2>
+
+<table border="1" width="100%" id="uploadsTable">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>File Name</th>
+      <th>Uploaded</th>
+      <th>Download</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="../js/supabase.js"></script>
+
+<script>
+  // Load header
+  fetch("admin-header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("adminHeader").innerHTML = html);
+</script>
+
+<script src="../js/admin-uploads.js"></script>
+
+</body>
+</html>

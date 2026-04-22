@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin – Homepage Management</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="adminHeader"></div>
+
+<h2>Homepage Banner</h2>
+<form id="bannerForm">
+  <input type="file" id="bannerImage" required>
+  <button type="submit">Upload Banner</button>
+</form>
+<div id="bannerPreview"></div>
+
+<hr>
+
+<h2>Homepage Photos</h2>
+<form id="photosForm">
+  <input type="file" id="photoFile" required>
+  <button type="submit">Upload Photo</button>
+</form>
+<div id="photosList"></div>
+
+<hr>
+
+<h2>Homepage Links</h2>
+<form id="linksForm">
+  <input type="text" id="linkTitle" placeholder="Link Title" required>
+  <input type="text" id="linkUrl" placeholder="URL" required>
+  <button type="submit">Add Link</button>
+</form>
+<div id="linksList"></div>
+
+<hr>
+
+<h2>Homepage Announcements</h2>
+<form id="announcementForm">
+  <input type="text" id="announcementTitle" placeholder="Title" required>
+  <textarea id="announcementText" placeholder="Announcement" required></textarea>
+  <button type="submit">Add Announcement</button>
+</form>
+<div id="announcementList"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="../js/supabase.js"></script>
+
+<script>
+  // Load header
+  fetch("admin-header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("adminHeader").innerHTML = html);
+</script>
+
+<script src="../js/admin-homepage.js"></script>
+
+</body>
+</html>

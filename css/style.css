@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background: #f9f5f0;
+  color: #333;
+}
+
+/* FULL-WIDTH BANNER */
+.banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* PARISH HEADER */
+.parish-header {
+  text-align: center;
+  padding: 20px;
+  background: #800000;
+  color: white;
+  border-bottom: 5px solid #d4af37;
+}
+
+.section {
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-left: 5px solid #800000;
+  border-radius: 5px;
+}
+
+.card img.affair-image {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.link-item {
+  margin-bottom: 10px;
+}
+
+.gallery-photo {
+  width: 100%;
+  max-width: 300px;
+  margin: 10px;
+  border-radius: 5px;
+}

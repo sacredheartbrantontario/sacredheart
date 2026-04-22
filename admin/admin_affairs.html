@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin – Current Affairs</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="adminHeader"></div>
+
+<h2>Add Current Affair</h2>
+
+<form id="affairsForm">
+  <input type="text" id="title" placeholder="Title" required>
+  <textarea id="description" placeholder="Description" required></textarea>
+  <input type="text" id="link" placeholder="Optional Link">
+  <input type="file" id="image">
+  <button type="submit">Add</button>
+</form>
+
+<h2>Existing Affairs</h2>
+<div id="affairsList"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="../js/supabase.js"></script>
+<script>
+  // Load header
+  fetch("admin-header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("adminHeader").innerHTML = html);
+</script>
+<script src="../js/admin-affairs.js"></script>
+
+</body>
+</html>

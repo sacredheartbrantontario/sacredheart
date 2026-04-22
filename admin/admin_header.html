@@ -1,0 +1,37 @@
+<div class="admin-header">
+  <h2>Sacred Heart Admin</h2>
+
+  <nav>
+    <a href="admin-affairs.html">Current Affairs</a>
+    <a href="admin-uploads.html">User Uploads</a>
+    <a href="admin-presentations.html">Presentations</a>
+    <a href="admin-homepage.html">Homepage</a>
+    <a href="#" id="logoutBtn">Logout</a>
+  </nav>
+</div>
+
+<style>
+  .admin-header {
+    background: #800000;
+    color: white;
+    padding: 15px;
+  }
+
+  .admin-header nav a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .admin-header nav a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<script>
+  document.getElementById("logoutBtn").addEventListener("click", async () => {
+    await client.auth.signOut();
+    window.location.href = "../login.html";
+  });
+</script>

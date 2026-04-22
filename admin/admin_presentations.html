@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin – Presentations</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="adminHeader"></div>
+
+<h2>Upload Presentation</h2>
+
+<form id="presentationForm">
+  <input type="text" id="title" placeholder="Title" required>
+  <textarea id="description" placeholder="Description"></textarea>
+  <input type="file" id="file" required>
+  <button type="submit">Upload</button>
+</form>
+
+<h2>Existing Presentations</h2>
+
+<div id="presentationsList"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="../js/supabase.js"></script>
+
+<script>
+  // Load header
+  fetch("admin-header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("adminHeader").innerHTML = html);
+</script>
+
+<script src="../js/admin-presentations.js"></script>
+
+</body>
+</html>
