@@ -18,7 +18,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
   const { data: { user } } = await client.auth.getUser();
 
   if (user.user_metadata.role === "admin") {
-    window.location.href = "admin.html";
+    window.location.href = "admin/admin-affairs.html";
   } else {
     window.location.href = "index.html";
   }
