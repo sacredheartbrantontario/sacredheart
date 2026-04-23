@@ -6,6 +6,14 @@
 </head>
 <body>
 
+    <div id="navbar"></div>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("navbar").innerHTML = html);
+</script>
+
+
 <!-- FULL-WIDTH SACRED HEART BANNER -->
 <div id="bannerSection"></div>
 
@@ -43,5 +51,19 @@
 <script src="js/supabase.js"></script>
 <script src="js/homepage.js"></script>
 
+
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+
+  hamburger.addEventListener("click", () => {
+    navLinks.style.display =
+      navLinks.style.display === "flex" ? "none" : "flex";
+  });
+</script>
+
 </body>
+
+
 </html>
