@@ -49,3 +49,69 @@ body {
   margin: 10px;
   border-radius: 5px;
 }
+
+
+
+/* THIS IS FOR THE HEADER.HTML  */
+/* BEGIN */
+  .site-header {
+    background: #800000;
+    color: white;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .nav-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  /* MOBILE */
+  .hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #800000;
+      width: 100%;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .nav-links a {
+      margin: 10px 0;
+      display: block;
+    }
+
+    .hamburger {
+      display: block;
+    }
+  }
+
+/* END */
