@@ -1,37 +1,108 @@
-<div class="admin-header">
-  <h2>Sacred Heart Admin</h2>
+<nav class="admin-nav">
+  <div class="admin-nav-left">
+    <span class="admin-logo">Admin Panel</span>
+  </div>
 
-  <nav>
+  <div class="admin-nav-right">
     <a href="admin_affairs.html">Current Affairs</a>
     <a href="admin_uploads.html">User Uploads</a>
     <a href="admin_presentations.html">Presentations</a>
     <a href="admin_homepage.html">Homepage</a>
-    <a href="#" id="logoutBtn">Logout</a>
-  </nav>
+    <a href="#" onclick="logoutUser()">Logout</a>
+  </div>
+
+  <div class="admin-hamburger" onclick="toggleAdminMenu()">
+    ☰
+  </div>
+</nav>
+
+<div id="adminMobileMenu" class="admin-mobile-menu">
+  <a href="admin_affairs.html">Current Affairs</a>
+  <a href="admin_uploads.html">User Uploads</a>
+  <a href="admin_presentations.html">Presentations</a>
+  <a href="admin_homepage.html">Homepage</a>
+  <a href="#" onclick="logoutUser()">Logout</a>
 </div>
 
 <style>
-  .admin-header {
+  .admin-nav {
     background: #800000;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: white;
-    padding: 15px;
   }
 
-  .admin-header nav a {
+  .admin-logo {
+    font-size: 1.2rem;
+    font-weight: bold;
     color: white;
-    margin-right: 20px;
+  }
+
+  .admin-nav-right a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-left: 20px;
+  }
+
+  .admin-nav-right a:hover {
+    text-decoration: underline;
+  }
+
+  .admin-hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+  }
+
+  .admin-mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: #800000;
+    padding: 10px 20px;
+  }
+
+  .admin-mobile-menu a {
+    color: white;
+    padding: 10px 0;
     text-decoration: none;
     font-weight: bold;
   }
 
-  .admin-header nav a:hover {
+  .admin-mobile-menu a:hover {
     text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .admin-nav-right {
+      display: none;
+    }
+
+    .admin-hamburger {
+      display: block;
+    }
+
+    .admin-mobile-menu.open {
+      display: flex;
+    }
   }
 </style>
 
 <script>
-  document.getElementById("logoutBtn").addEventListener("click", async () => {
-    await client.auth.signOut();
+  // Hamburger toggle (inline-safe)
+  function toggleAdminMenu() {
+    const menu = document.getElementById("adminMobileMenu");
+    if (menu) {
+      menu.classList.toggle("open");
+    }
+  }
+
+  // Logout (inline-safe)
+  async function logoutUser() {
+    await supabase.auth.signOut();
     window.location.href = "../login.html";
-  });
+  }
 </script>

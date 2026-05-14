@@ -2,38 +2,68 @@
 <html>
 <head>
   <title>Admin – User Uploads</title>
-  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<div id="adminHeader"></div>
-
-<h2>User Uploads</h2>
-
-<table border="1" width="100%" id="uploadsTable">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>File Name</th>
-      <th>Uploaded</th>
-      <th>Download</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="../js/supabase.js"></script>
-
+<!-- ADMIN AUTH CHECK -->
 <script>
-  // Load header
-  fetch("admin_header.html")
-    .then(res => res.text())
-    .then(html => document.getElementById("adminHeader").innerHTML = html);
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    window.location.href = "../login.html";
+    return;
+  }
+
+  if (user.user_metadata.role !== "admin") {
+    alert("You do not have admin access.");
+    window.location.href = "../index.html";
+    return;
+  }
+});
 </script>
 
+<!-- ADMIN HEADER -->
+<div id="admin-header"></div>
+<script>
+  fetch("admin_header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("admin-header").innerHTML = html;
+
+      // FIX LOGOUT BUTTON
+      const logoutBtn = document.getElementById("logoutBtn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", async () => {
+          await supabase.auth.signOut();
+          window.location.href = "../login.html";
+        });
+      }
+    });
+</script>
+
+<h1>All User Uploads</h1>
+
+<!-- ⭐ NEW: SACRAMENT FILTER -->
+<div style="margin: 20px 0;">
+  <label><strong>Filter by Sacrament:</strong></label>
+  <select id="sacramentFilter">
+    <option value="all">All</option>
+    <option value="First Holy Communion">First Holy Communion</option>
+    <option value="Confirmation">Confirmation</option>
+  </select>
+</div>
+
+<!-- TABLE CONTAINER -->
+<div id="uploads-container">
+  <!-- Table will be loaded here -->
+</div>
+
+<!-- LOAD SUPABASE FIRST -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="../js/admin_supabase.js"></script>
+
+<!-- THEN LOAD PAGE LOGIC -->
 <script src="../js/admin_uploads.js"></script>
 
 </body>

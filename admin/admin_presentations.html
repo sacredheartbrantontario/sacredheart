@@ -2,35 +2,65 @@
 <html>
 <head>
   <title>Admin – Presentations</title>
-  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-<div id="adminHeader"></div>
+<!-- ADMIN AUTH CHECK -->
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data: { user } } = await supabase.auth.getUser();
 
-<h2>Upload Presentation</h2>
+  // Must be logged in
+  if (!user) {
+    window.location.href = "../login.html";
+    return;
+  }
 
+  // Must be admin
+  if (user.user_metadata.role !== "admin") {
+    alert("You do not have admin access.");
+    window.location.href = "../index.html";
+    return;
+  }
+});
+
+</script>
+
+<!-- ADMIN HEADER -->
+<div id="admin-header"></div>
+<script>
+  fetch("admin_header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("admin-header").innerHTML = html;
+
+      const logoutBtn = document.getElementById("logoutBtn");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", async () => {
+          await supabase.auth.signOut();
+          window.location.href = "../login.html";
+        });
+      }
+    });
+</script>
+
+<h1>Manage Presentations</h1>
+
+<!-- UPLOAD FORM -->
 <form id="presentationForm">
-  <input type="text" id="title" placeholder="Title" required>
-  <textarea id="description" placeholder="Description"></textarea>
-  <input type="file" id="file" required>
-  <button type="submit">Upload</button>
+  <input type="file" id="presentationFile" required>
+  <input type="text" id="presentationTitle" placeholder="Title" required>
+  <button type="submit">Upload Presentation</button>
 </form>
 
-<h2>Existing Presentations</h2>
-
+<!-- LIST -->
 <div id="presentationsList"></div>
 
+<!-- LOAD SUPABASE FIRST -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="../js/supabase.js"></script>
 
-<script>
-  // Load header
-  fetch("admin_header.html")
-    .then(res => res.text())
-    .then(html => document.getElementById("adminHeader").innerHTML = html);
-</script>
-
+<!-- THEN LOAD PAGE LOGIC -->
 <script src="../js/admin_presentations.js"></script>
 
 </body>

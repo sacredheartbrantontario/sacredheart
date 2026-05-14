@@ -1,34 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin – Current Affairs</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <title>Admin – Announcements</title>
 </head>
 <body>
 
-<div id="adminHeader"></div>
-
-<h2>Add Current Affair</h2>
-
-<form id="affairsForm">
-  <input type="text" id="title" placeholder="Title" required>
-  <textarea id="description" placeholder="Description" required></textarea>
-  <input type="text" id="link" placeholder="Optional Link">
-  <input type="file" id="image">
-  <button type="submit">Add</button>
-</form>
-
-<h2>Existing Affairs</h2>
-<div id="affairsList"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="../js/supabase.js"></script>
+<!-- ADMIN AUTH CHECK -->
 <script>
-  // Load header
+document.addEventListener("DOMContentLoaded", async () => {
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (!user) {
+    window.location.href = "../login.html";
+    return;
+  }
+
+  if (user.user_metadata.role !== "admin") {
+    alert("You do not have admin access.");
+    window.location.href = "../index.html";
+    return;
+  }
+});
+</script>
+
+<!-- ADMIN HEADER -->
+<div id="admin-header"></div>
+<script>
   fetch("admin_header.html")
     .then(res => res.text())
-    .then(html => document.getElementById("adminHeader").innerHTML = html);
+    .then(html => {
+      const container = document.getElementById("admin-header");
+      container.innerHTML = html;
+
+      // Execute scripts inside admin_header.html
+      const scripts = container.querySelectorAll("script");
+      scripts.forEach(oldScript => {
+        const newScript = document.createElement("script");
+        newScript.textContent = oldScript.textContent;
+        document.body.appendChild(newScript);
+      });
+    });
 </script>
+
+
+<h1 style="color: red;"> Solemnity of The Sacred Heart of Jesus - June 12th 2026</h1>
+<hr>
+<h3>Content coming soon</h3>
+
+
+
+<div id="affairs-container">
+  <!-- CRUD UI goes here -->
+
+  <!-- This is REQUIRED for admin_affairs.js to work -->
+  <div id="affairsList"></div>
+</div>
+
+
+<!-- LOAD SUPABASE FIRST -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="../js/supabase.js"></script>
+
+<!-- THEN LOAD PAGE LOGIC (if you have admin_affairs.js) -->
 <script src="../js/admin_affairs.js"></script>
 
 </body>
