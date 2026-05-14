@@ -1,7 +1,7 @@
 <!-- PUBLIC NAVIGATION BAR -->
 <header class="site-header">
   <div class="nav-container">
-    <div class="logo">Sacred Heart Parish</div>
+    <div class="logo"></div>
 
     <div class="hamburger" id="hamburger">
       ☰
@@ -9,15 +9,31 @@
 
     <nav class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
-      <a href="register.html">Register</a>
+      <a href="register.html">Register For First Communion</a>
       <a href="mass-times.html">Mass Times</a>
-      <a href="ministries.html">Ministries</a>
+      <a href="registerconfirm.html">Register For Confirmation</a>
       <a href="contact.html">Contact</a>
-      <a href="login.html">Login</a>
-      <a href="admin/admin_affairs.html">Admin</a>
-      
+       <!-- FIXED: ID ADDED -->
+      <a id="loginLink" href="login.html">Login</a>
     </nav>
   </div>
 </header>
 
 
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ------------------ HAMBURGER MENU ------------------ */
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+      const isOpen = navLinks.style.display === "flex";
+      navLinks.style.display = isOpen ? "none" : "flex";
+    });
+  }
+
+});
+</script>

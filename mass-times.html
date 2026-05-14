@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mass Times – Sacred Heart Parish</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div id="navbar"></div>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      if (!hamburger || !navLinks) return;
+
+      hamburger.addEventListener("click", () => {
+        const isOpen = navLinks.style.display === "flex";
+        navLinks.style.display = isOpen ? "none" : "flex";
+        hamburger.style.display = isOpen ? "block" : "none";
+      });
+    });
+</script>
+
+<!-- SACRED HEART EMBLEM -->
+<div class="mass-emblem-wrapper">
+  <img src="images/sacredHeartSmall.jpg" class="mass-emblem" alt="Sacred Heart Emblem">
+</div>
+
+<h1 class="mass-title">Mass Times</h1>
+
+<hr class="gold-divider">
+
+<!-- MASS TIMES BOX -->
+<div class="mass-card single-box seasonal-box">
+  <h2>Mass & Devotion Schedule</h2>
+
+ <p><strong>Weekend Masses:</strong>  
+     <p>Saturday 5:00 PM</p>
+     <p>Sunday 9:00 AM • 11:00 AM</p>
+  </p>
+
+  <p><strong>Weekday Masses:</strong>    </p>
+    <p> Tuesday 7:00 PM </p>
+    <p> Wednesday – Friday 9:00 AM  </p>
+
+  <p><strong>Adoration:</strong>  
+     Friday 8:00 AM
+  </p>
+
+  <p><strong>Benediction:</strong>  
+     Friday 8:45 AM
+  </p>
+
+  <p><strong>First Staturday Mass</strong>  
+     First Saturday 9:00 AM
+  </p>
+
+</div>
+
+<hr class="gold-divider">
+
+<!-- DOWNLOADABLE PDF -->
+
+<!--
+
+<div class="pdf-wrapper">
+  <a href="pdf/mass_schedule.pdf" class="pdf-button" download>
+    Download Mass Schedule (PDF)
+  </a>
+
+  -->
+</div>
+
+</body>
+</html>

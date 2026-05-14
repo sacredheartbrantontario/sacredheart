@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photos – Sacred Heart Parish</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        const isOpen = navLinks.style.display === "flex";
+        navLinks.style.display = isOpen ? "none" : "flex";
+        hamburger.style.display = isOpen ? "block" : "none";
+      });
+    });
+</script>
+
+<h1 class="photos-title">History in The Making</h1>
+
+<section class="section">
+  <div id="photosCarousel"></div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/photos.js"></script>
+
+</body>
+</html>

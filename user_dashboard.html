@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        const isOpen = navLinks.style.display === "flex";
+        navLinks.style.display = isOpen ? "none" : "flex";
+        hamburger.style.display = isOpen ? "block" : "none";
+      });
+    });
+</script>
+
+<h2 class="dashboard-title"></h2>
+
+<div class="dashboard-card">
+
+  <section class="profile-section">
+    <h3>My Profile</h3>
+    <p><strong>Name:</strong> <span id="profileName"></span></p>
+    <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+    <p><strong>Member Since:</strong> <span id="profileDate"></span></p>
+  </section>
+
+  <hr class="gold-divider">
+
+  <section class="upload-section">
+    <h3>Upload Your Documents</h3>
+    <input type="file" id="fileUpload" multiple>
+    <button id="uploadBtn" class="gold-btn">Upload</button>
+    <div id="uploadMessage"></div>
+  </section>
+
+  <hr class="gold-divider">
+
+  <section class="files-section">
+    <h3>Your Uploaded Files</h3>
+    <div id="filesList"></div>
+    <button id="downloadAllBtn" class="gold-btn">Download All Files</button>
+  </section>
+
+  <hr class="gold-divider">
+
+  <section class="history-section">
+    <h3>Upload History</h3>
+    <div id="historyList"></div>
+  </section>
+
+  <hr class="gold-divider">
+
+  <section class="presentations-section">
+    <h3>Presentations</h3>
+    <div id="presentationsList"></div>
+  </section>
+
+  <hr class="gold-divider">
+
+  <button id="logoutBtn" class="logout-btn">Logout</button>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/user_dashboard.js"></script>
+
+</body>
+</html>

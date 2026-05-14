@@ -1,69 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Sacred Heart Parish – Brant, Ontario</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <div id="navbar"></div>
-<script>
-  fetch("header.html")
-    .then(res => res.text())
-    .then(html => document.getElementById("navbar").innerHTML = html);
-</script>
+<!-- NAVBAR -->
+<div id="navbar"></div>
 
-
-<!-- FULL-WIDTH SACRED HEART BANNER -->
-<div id="bannerSection"></div>
-
-<!-- PARISH NAME -->
-<header class="parish-header">
-  <h1>Sacred Heart Parish</h1>
-  <h3>Brant, Ontario</h3>
-</header>
-
-<!-- CURRENT AFFAIRS -->
-<section class="section">
-  <h2>Current Affairs</h2>
-  <div id="affairsList"></div>
-</section>
-
-<!-- PRESENTATIONS -->
-<section class="section">
-  <h2>Presentations</h2>
-  <div id="presentationsList"></div>
-</section>
-
-<!-- HOMEPAGE LINKS -->
-<section class="section">
-  <h2>Quick Links</h2>
-  <div id="linksList"></div>
-</section>
-
-<!-- HOMEPAGE PHOTOS -->
-<section class="section">
-  <h2>Parish Photos</h2>
-  <div id="photosGallery"></div>
-</section>
-
+<!-- LOAD HEADER + ADMIN LOGIC + HAMBURGER -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 <script src="js/supabase.js"></script>
 <script src="js/homepage.js"></script>
 
+<!-- PARISH NAME -->
+<header class="parish-header">
+  <h1>Sacred Heart Parish</h1>
+  <h3>Paris, Ontario</h3>
+</header>
+
+<!-- BANNER -->
+<section class="section">
+  <div id="homepageBanner"></div>
+</section>
 
 
-<script>
-  const hamburger = document.getElementById("hamburger");
-  const navLinks = document.getElementById("navLinks");
 
-  hamburger.addEventListener("click", () => {
-    navLinks.style.display =
-      navLinks.style.display === "flex" ? "none" : "flex";
-  });
-</script>
+<!-- ANNOUNCEMENTS -->
+<section class="section">
+  <h2><a href="current_affairs.html" class="section-link">Announcements</a></h2>
+  <div class="announcements-wrapper">
+  <div id="homepageAnnouncements"></div>
+</div>
+
+</section>
+
+<!-- PRESENTATIONS -->
+
+<!--
+<section class="section">
+  <h2><a href="presentations.html" class="section-link">Presentations</a></h2>
+  <div id="presentationsList"></div>
+</section>
+-->
+<!-- HOMEPAGE LINKS -->
+ <!--
+<section class="section">
+  <h2><a href="links.html" class="section-link">Quick Links</a></h2>
+  <div id="homepageLinks"></div>
+</section>
+-->
+<!-- HOMEPAGE HISTORICAL PHOTOS -->
+<section class="section">
+  <h2><a href="photos.html" class="section-link">History - In Pictures</a></h2>
+  <div id="homepagePhotos"></div>
+</section>
+
+<section class="section">
+  <h2><a href="photos1.html" class="section-link">How It All Started - The Sacred Heart Devotion</a></h2>
+  <div id="homepagePhotos"></div>
+</section>
+
 
 </body>
-
-
 </html>

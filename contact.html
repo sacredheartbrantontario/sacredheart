@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sacred Heart Parish – Brant, Ontario</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="navbar"></div>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(html => document.getElementById("navbar").innerHTML = html);
+</script>
+
+
+<!-- FULL-WIDTH SACRED HEART BANNER -->
+<div id="bannerSection"></div>
+
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      if (!hamburger || !navLinks) return;
+
+      hamburger.addEventListener("click", () => {
+        const isOpen = navLinks.style.display === "flex";
+
+        if (isOpen) {
+          // CLOSE MENU
+          navLinks.style.display = "none";
+          hamburger.style.display = "block";   // show three lines again
+        } else {
+          // OPEN MENU
+          navLinks.style.display = "flex";
+          hamburger.style.display = "none";    // hide three lines
+        }
+      });
+    });
+</script>
+
+<h1 class="contact-title">Contact Us</h1>
+
+<div class="contact-wrapper">
+
+  <!-- PARISH OFFICE -->
+  <div class="contact-card">
+    <h2><i class="fas fa-church"></i> Parish Office</h2>
+    <p><i class="fas fa-church"></i> Secretary: Maria Berencsi</p>
+    <p><i class="fas fa-phone"></i> (519) 442-2465</p>
+    <p><i class="fas fa-envelope"></i> sacredheartparis@hamiltondiocese.com</p> <br>
+    <p><i class="fas fa-map-marker-alt"></i>  17 Washinton St, Brant, Ontario</p>
+  </div>
+
+  
+
+  <!-- PASTOR -->
+  <div class="contact-card">
+    <h2><i class="fas fa-user"></i> Pastor</h2>
+    <p><strong>Fr. Jerzy Toman</strong></p>
+    <p><i class="fas fa-phone"></i> (555) 987‑6543</p>
+    <p><i class="fas fa-envelope"></i> pastor@example.com</p>
+  </div>
+
+  <!-- OFFICE HOURS -->
+  <div class="contact-card">
+    <h2><i class="fas fa-clock"></i> Office Hours</h2>
+    <p>Monday – Thursday</p>
+    <p>8:30 AM – 12:00 PM</p>
+    <p>1:00 PM – 2:30 PM</p>
+  </div>
+
+</div>
+
+<!-- MAP SECTION -->
+<h2 class="contact-subtitle">Find Us</h2>
+<div class="map-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.123456789!2d-80.350000!3d43.100000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c123456789!2sSacred%20Heart%20Parish!5e0!3m2!1sen!2sca!4v0000000000"
+    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
+  </iframe>
+</div>
+
+<!-- CONTACT FORM -->
+<h2 class="contact-subtitle">Send Us a Message</h2>
+
+<form id="contactForm" class="contact-form">
+  <label>Name</label>
+  <input type="text" name="from_name" required>
+
+  <label>Email</label>
+  <input type="email" name="reply_to" required>
+
+  <label>Message</label>
+  <textarea name="message" rows="5" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+
+<p id="formStatus" class="form-status"></p>
+
+
+<!-- FONT AWESOME ICONS -->
+<script src="https://kit.fontawesome.com/a2e0e6ad65.js" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
+</script>
+
+
+</body>
+</html>
+

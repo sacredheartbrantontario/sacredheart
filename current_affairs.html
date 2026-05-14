@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Current Affairs – Sacred Heart Parish</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="navbar"></div>
+<script>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("navbar").innerHTML = html;
+
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      hamburger.addEventListener("click", () => {
+        const isOpen = navLinks.style.display === "flex";
+        navLinks.style.display = isOpen ? "none" : "flex";
+        hamburger.style.display = isOpen ? "block" : "none";
+      });
+    });
+</script>
+
+<h1 style="color: red;"> Solemnity of The Sacred Heart of Jesus - June 12th 2026</h1>
+<hr>
+<h3>Masses on the Solemnity:</h3>
+
+<h4>8:00 AM - Adoration </h4>
+<h4>8:45 AM - Benediction </h4>
+<h4>9:00 AM - Holy Mass </h4>
+
+<h4>11:00 AM - Holy Mass for Telfer</h4>
+<h4>11:30 AM - Lunch with Telfer Residents in the parish hall</h4>
+
+<h4>6:00 PM - Holy Mass of The Solemnity of The Sacred Heart</h4>
+
+</body>
+</html>
