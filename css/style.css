@@ -54,6 +54,7 @@ body {
 
 /* THIS IS FOR THE HEADER.HTML  */
 /* BEGIN */
+
   .site-header {
     background: #800000;
     color: white;
@@ -87,7 +88,6 @@ body {
     text-decoration: underline;
   }
 
-  /* MOBILE */
   .hamburger {
     display: none;
     font-size: 28px;
@@ -96,7 +96,7 @@ body {
 
   @media (max-width: 768px) {
     .nav-links {
-      display: none;
+      display: none;          /* start hidden */
       flex-direction: column;
       background: #800000;
       width: 100%;
@@ -110,8 +110,970 @@ body {
     }
 
     .hamburger {
-      display: block;
+      display: block;         /* show hamburger on mobile */
     }
   }
 
+
 /* END */
+
+/* THIS IS FOR THE HOMEPAGE LINKS LIKE THE PARISH LINKS, PHOTOS, CURRENT AFFAIRS, PRESENTATIONS */
+/*BEGIN */
+
+.section-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.section-link:hover {
+  text-decoration: underline;
+}
+
+
+/*END*/
+
+/* This is for the REGISTER.HTML */
+/*BEGIN*/
+
+
+/* Main container */
+.register-container {
+  width: 95%;
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff8f0;
+  border-radius: 15px;
+  border: 3px solid #800000;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+
+/* Emblem */
+.emblem-wrapper {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.sacred-heart-emblem {
+  width: 80px;
+  height: auto;
+}
+
+/* Title */
+.register-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #800000;
+  font-weight: bold;
+}
+
+/* Two-column layout */
+.two-column-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-left,
+.form-right {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Labels */
+#registerForm label {
+  font-weight: bold;
+  color: #800000;
+  margin-top: 12px;
+  display: block;
+}
+
+/* Inputs */
+#registerForm input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #b38b00;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #fffdf8;
+}
+
+/* Password wrapper */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #800000;
+  font-weight: bold;
+}
+
+/* Button */
+.register-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #800000, #b30000);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.register-btn:hover {
+  background: #a00000;
+}
+
+/* Login link */
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.login-link a {
+  color: #800000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Message */
+#message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #800000;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .two-column-form {
+    flex-direction: column;
+  }
+}
+
+
+
+/*END*/
+
+/* LOGIN.HTML */
+/*BEGIN */
+
+/* LOGIN CONTAINER */
+.login-container {
+  width: 95%;
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff8f0;
+  border-radius: 15px;
+  border: 3px solid #800000;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+
+/* Emblem */
+.emblem-wrapper {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.sacred-heart-emblem {
+  width: 80px;
+  height: auto;
+}
+
+/* Title */
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #800000;
+  font-weight: bold;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  font-weight: bold;
+  color: #800000;
+  margin-top: 12px;
+  display: block;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #b38b00;
+  border-radius: 8px;
+  font-size: 16px;
+  background: #fffdf8;
+}
+
+/* Password wrapper */
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #800000;
+  font-weight: bold;
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #800000, #b30000);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.login-btn:hover {
+  background: #a00000;
+}
+
+/* Register link */
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.register-link a {
+  color: #800000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Message */
+#message {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #800000;
+}
+
+
+/*END */
+
+/* USER_DASHBOARD.HTML */
+
+.dashboard-title {
+  text-align: center;
+  color: #800000;
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.dashboard-card {
+  width: 95%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #fff8f0;
+  border-radius: 15px;
+  border: 3px solid #800000;
+  box-shadow: 0 0 15px rgba(0,0,0,0.15);
+}
+
+.dashboard-card h3 {
+  color: #800000;
+  margin-bottom: 10px;
+}
+
+.gold-divider {
+  border: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #b38b00, #800000, #b38b00);
+  margin: 20px 0;
+}
+
+.gold-btn {
+  background: linear-gradient(90deg, #b38b00, #d4af37);
+  color: #800000;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.gold-btn:hover {
+  background: #c9a227;
+}
+
+.logout-btn {
+  background: #800000;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.logout-btn:hover {
+  background: #a00000;
+}
+
+.file-item {
+  padding: 10px;
+  background: #fffdf8;
+  border: 1px solid #b38b00;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file-item a {
+  color: #800000;
+  font-weight: bold;
+}
+
+.delete-btn {
+  background: #800000;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #a00000;
+}
+
+.history-entry {
+  padding: 8px;
+  border-left: 4px solid #b38b00;
+  margin-bottom: 8px;
+  background: #fffdf8;
+}
+
+/* USER_DASHBOARD.HTML END */
+
+
+/* DASHBOARD NAVIGATION BAR FOR ADMIN BEGIN */
+
+
+
+  .admin-header {
+    background: #800000;
+    color: white;
+    padding: 15px;
+  }
+
+  .admin-header nav a {
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .admin-header nav a:hover {
+    text-decoration: underline;
+  }
+
+
+/* DASHBOARD NAVIGATION BAR FOR ADMIN END */
+
+/* HOMEPAGE BANNER */
+
+/* -----------------------------------
+   HERO BANNER (uses #homepageBanner)
+----------------------------------- */
+
+/* -----------------------------------
+   PARISH HEADER AS HERO BANNER
+----------------------------------- */
+.hero-header {
+  position: relative;
+  width: 97%;
+  height: 360px;
+  background-size: cover;
+  background-position: center 65%;
+  background-repeat: no-repeat;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  animation: fadeIn 1.2s ease;
+}
+
+/* Dark overlay */
+.hero-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+}
+
+/* Centered text */
+.parish-header h1,
+.parish-header h3 {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: right;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  margin: 0;
+}
+
+.parish-header h1 {
+  font-family: "Merriweather", serif;
+  font-size: 2.8rem;
+  margin-top: 120px;
+}
+
+.parish-header h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 1.4rem;
+  margin-top: 10px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero-header {
+    height: 260px;
+  }
+  .parish-header h1 {
+    font-size: 2rem;
+    margin-top: 90px;
+  }
+  .parish-header h3 {
+    font-size: 1rem;
+  }
+}
+
+
+/*ANNOUNCEMENTS */
+
+/* -----------------------------------
+   ANNOUNCEMENT CARDS
+----------------------------------- */
+/* ANNOUNCEMENT CARD WINDOW */
+
+
+.announcement-card {
+  background: #b15c5c;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  border: 1px solid #f3dada;
+  margin-bottom: 20px;
+  position: relative;
+
+  /* subtle pattern */
+  background-image: radial-gradient(circle at top left, #410897 0%, transparent 60%),
+                    radial-gradient(circle at bottom right, #2724e0 0%, transparent 60%);
+
+}
+
+.announcement-card::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 6px;
+  border-radius: 3px;
+  background: #e6b3b3;
+  opacity: 0.7;
+}
+.announcement-list {
+  list-style-type: disc !important;
+  padding-left: 25px !important;
+  margin-top: 10px;
+}
+
+.announcement-list li {
+  display: list-item !important;
+  list-style-type: disc !important;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+
+.announcement-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Serif title */
+.announcement-card h3 {
+  font-family: "Merriweather", serif;
+  color: #5a2a27;
+  margin-bottom: 8px;
+}
+
+.announcement-card p {
+  font-family: "Inter", sans-serif;
+  color: #444;
+  line-height: 1.6;
+  white-space: pre-line; /* preserves line breaks */
+}
+
+
+/* Optional image */
+.announcement-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Date badge */
+.date-badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: #b33a3a;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+body {
+  background: #cc9393; /* soft light red / rose */
+}
+
+
+/* Highlight newest announcement */
+.announcement-card.newest {
+  border-left: 6px solid #b33a3a;
+  background: #fff7f7;
+}
+
+/* ANNOUNCEMENTS BOX WRAPPER */
+
+.announcements-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 900px;
+  margin: 40px auto;
+  border: 2px solid #f2d6d6;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+
+  /* subtle inner shadow for depth */
+  box-shadow:
+    inset 0 0 20px rgba(255, 240, 240, 0.8),
+    0 8px 24px rgba(0,0,0,0.12);
+}
+
+
+
+/* -----------------------------------
+   PHOTOS PAGE CAROUSEL
+----------------------------------- */
+.photos-title {
+  text-align: center;
+  font-family: "Merriweather", serif;
+  color: #5a2a27;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+#photosCarousel.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: auto;
+}
+
+#photosCarousel img {
+  width: 100%;
+  display: none;
+  border-radius: 14px;
+  transition: opacity 0.6s ease;
+}
+
+#photosCarousel img.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ANNOUNCEMENTS SECTION */
+/* ANNOUNCEMENTS SECTION WRAPPER */
+#homepageAnnouncements {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* QUICK LINKS GRID */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.link-card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.15s ease;
+}
+
+.link-card:hover {
+  transform: translateY(-4px);
+}
+
+.link-card i {
+  font-size: 2rem;
+  color: #b33a3a;
+  margin-bottom: 10px;
+}
+
+.link-card h3 {
+  font-family: "Merriweather", serif;
+  color: #5a2a27;
+  margin-bottom: 8px;
+}
+
+.link-card a {
+  font-family: "Inter", sans-serif;
+  color: #b33a3a;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* CONTACT PAGE */
+.contact-title {
+  text-align: center;
+  font-family: "Merriweather", serif;
+  color: #800000;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.contact-subtitle {
+  text-align: center;
+  font-family: "Merriweather", serif;
+  color: #800000;
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.contact-wrapper {
+  width: 95%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.contact-card {
+  background: #fff8f0;
+  border: 3px solid #800000;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-card h2 {
+  font-family: "Merriweather", serif;
+  color: #800000;
+  margin-bottom: 15px;
+   margin: 0; /* removes uneven spacing */
+  line-height: 1.4; /* makes lines clean and readable */
+}
+
+.contact-card p {
+  font-family: "Inter", sans-serif;
+  margin-bottom: 10px;
+  color: #333;
+  margin: 0; /* removes uneven spacing */
+  line-height: 1.4; /* makes lines clean and readable */
+}
+
+.contact-card i {
+  color: #800000;
+  margin-right: 7px;
+  
+  line-height: 1.4; /* makes lines clean and readable */
+}
+
+/* MAP */
+.map-container {
+  width: 95%;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* CONTACT FORM */
+.contact-form {
+  width: 95%;
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  background: #fff8f0;
+  padding: 25px;
+  border-radius: 15px;
+  border: 3px solid #800000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: #800000;
+  display: block;
+  margin-top: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border: 1px solid #b38b00;
+  border-radius: 8px;
+  background: #fffdf8;
+  font-size: 16px;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #800000, #b30000);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.contact-form button:hover {
+  background: #a00000;
+}
+
+/* MASS TIMES PAGE */
+.mass-emblem-wrapper {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.mass-emblem {
+  width: 120px;
+  height: auto;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+}
+
+.mass-title {
+  text-align: center;
+  font-family: "Merriweather", serif;
+  color: #800000;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.gold-divider {
+  border: 0;
+  height: 3px;
+  width: 80%;
+  margin: 20px auto;
+  background: linear-gradient(90deg, #d4af37, #800000, #d4af37);
+  border-radius: 5px;
+}
+
+.single-box {
+  max-width: 700px;
+  margin: 30px auto;
+  background: #fff8f0;
+  border: 3px solid #800000;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.single-box h2 {
+  font-family: "Merriweather", serif;
+  color: #800000;
+  margin-bottom: 15px;
+}
+
+.single-box p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* SEASONAL COLORS */
+.seasonal-box {
+  /* Default Ordinary Time */
+  border-color: #800000;
+  background: #fff8f0;
+}
+
+/* Advent */
+body.advent .seasonal-box {
+  border-color: #4b0082;
+  background: #f7f0ff;
+}
+
+/* Lent */
+body.lent .seasonal-box {
+  border-color: #5a2a27;
+  background: #fff4f4;
+}
+
+/* Easter */
+body.easter .seasonal-box {
+  border-color: #d4af37;
+  background: #fffdf5;
+}
+
+/* PDF BUTTON */
+.pdf-wrapper {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.pdf-button {
+  background: linear-gradient(90deg, #800000, #b30000);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.pdf-button:hover {
+  background: #a00000;
+}
+
+
+
+/* ================================
+   FORGOT PASSWORD PAGE STYLING
+   ================================ */
+
+body.forgot-password-body {
+  background: #faf7f2;
+  font-family: "Georgia", serif;
+}
+
+.reset-card {
+  max-width: 420px;
+  margin: 80px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-top: 6px solid #b30000;
+  text-align: center;
+}
+
+.reset-card h2 {
+  color: #b30000;
+  margin-bottom: 10px;
+}
+
+.reset-card p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.reset-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.reset-card button {
+  width: 100%;
+  padding: 12px;
+  background: #b30000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.reset-card button:hover {
+  background: #8a0000;
+}
+
+.reset-card a {
+  color: #b30000;
+  text-decoration: none;
+}
+
+.reset-card a:hover {
+  text-decoration: underline;
+}
+
+#resetMessage {
+  color: green;
+}
+
+#resetError {
+  color: red;
+}
+
+.back-link {
+  margin-top: 20px;
+}
