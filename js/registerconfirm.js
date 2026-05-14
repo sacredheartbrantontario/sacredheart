@@ -7,8 +7,8 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
 
-  // ⭐ ADD THIS LINE — this page is for First Holy Communion
-  const sacrament = "First Holy Communion";
+ const sacrament = "Confirmation";
+
 
   const { data, error } = await client.auth.signUp({
   email,

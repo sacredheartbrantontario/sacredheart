@@ -1,5 +1,8 @@
 async function loadAffairs() {
-  const { data, error } = await client.from("affairs").select("*").order("id", { ascending: false });
+  const { data, error } = await client
+    .from("affairs")
+    .select("*")
+    .order("id", { ascending: false });
 
   if (error) {
     console.log(error);
@@ -23,28 +26,37 @@ async function loadAffairs() {
   });
 }
 
-document.getElementById("affairsForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("affairsForm");
 
-  const title = document.getElementById("title").value;
-  const description = document.getElementById("description").value;
-  const link = document.getElementById("link").value;
-  const imageFile = document.getElementById("image").files[0];
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-  let image_url = null;
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const link = document.getElementById("link").value;
+      const imageFile = document.getElementById("image").files[0];
 
-  if (imageFile) {
-    const filePath = `affairs/${Date.now()}-${imageFile.name}`;
-    const { data: uploadData, error: uploadError } = await client.storage
-      .from("homepage_media")
-      .upload(filePath, imageFile);
+      let image_url = null;
 
-    if (!uploadError) {
-      image_url = client.storage.from("homepage_media").getPublicUrl(filePath).data.publicUrl;
-    }
+      if (imageFile) {
+        const filePath = `affairs/${Date.now()}-${imageFile.name}`;
+        const { data: uploadData, error: uploadError } = await client.storage
+          .from("homepage_media")
+          .upload(filePath, imageFile);
+
+        if (!uploadError) {
+          image_url = client.storage
+            .from("homepage_media")
+            .getPublicUrl(filePath).data.publicUrl;
+        }
+      }
+
+      await client.from("affairs").insert([{ title, description, link, image_url }]);
+      loadAffairs();
+    });
   }
-
-  await client.from("affairs").insert([{ title, description, link, image_url }]);
 
   loadAffairs();
 });
@@ -53,5 +65,3 @@ async function deleteAffair(id) {
   await client.from("affairs").delete().eq("id", id);
   loadAffairs();
 }
-
-loadAffairs();

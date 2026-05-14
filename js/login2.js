@@ -22,6 +22,6 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     window.location.href = "admin/admin_affairs.html";
 
   } else {
-    window.location.href = "index.html";
+    window.location.href = "user_dashboard.html";
   }
 });

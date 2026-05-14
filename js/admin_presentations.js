@@ -1,23 +1,31 @@
+// SAFETY CHECK
+if (!window.supabase) {
+  console.error("Supabase not loaded");
+}
+
+/* ------------------ LOAD PRESENTATIONS ------------------ */
+loadPresentations();
+
 async function loadPresentations() {
-  const { data, error } = await client
+  const { data } = await supabase
     .from("presentations")
     .select("*")
-    .order("id", { ascending: false });
-
-  if (error) {
-    console.log(error);
-    return;
-  }
+    .order("created_at", { ascending: false });
 
   const list = document.getElementById("presentationsList");
   list.innerHTML = "";
 
+  if (!data || data.length === 0) {
+    list.innerHTML = "<p>No presentations uploaded yet.</p>";
+    return;
+  }
+
   data.forEach(item => {
     const div = document.createElement("div");
     div.innerHTML = `
-      <h3>${item.title}</h3>
-      <p>${item.description || ""}</p>
-      <a href="${item.file_url}" target="_blank">Download</a>
+      <strong>${item.title}</strong><br>
+      <a href="${item.file_url}" target="_blank">Download / View</a>
+      <br>
       <button onclick="deletePresentation(${item.id})">Delete</button>
       <hr>
     `;
@@ -25,44 +33,42 @@ async function loadPresentations() {
   });
 }
 
+/* ------------------ UPLOAD PRESENTATION ------------------ */
+/* ------------------ UPLOAD PRESENTATION ------------------ */
 document.getElementById("presentationForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const title = document.getElementById("title").value;
-  const description = document.getElementById("description").value;
-  const file = document.getElementById("file").files[0];
+  const file = document.getElementById("presentationFile").files[0];
+  const title = document.getElementById("presentationTitle").value;
 
-  if (!file) {
-    alert("Please choose a file");
-    return;
-  }
+  if (!file) return alert("Please select a file");
 
   const filePath = `presentations/${Date.now()}-${file.name}`;
 
-  const { data: uploadData, error: uploadError } = await client.storage
+  // Upload to the correct bucket
+  const { error: uploadError } = await supabase.storage
     .from("presentations")
     .upload(filePath, file);
 
   if (uploadError) {
     alert("Upload failed");
-    console.log(uploadError);
+    console.error(uploadError);
     return;
   }
 
-  const file_url = client.storage
+  const file_url = supabase.storage
     .from("presentations")
     .getPublicUrl(filePath).data.publicUrl;
 
-  await client.from("presentations").insert([
-    { title, description, file_url }
-  ]);
+  // Insert into database
+  await supabase.from("presentations").insert([{ title, file_url }]);
 
   loadPresentations();
 });
 
+
+/* ------------------ DELETE PRESENTATION ------------------ */
 async function deletePresentation(id) {
-  await client.from("presentations").delete().eq("id", id);
+  await supabase.from("presentations").delete().eq("id", id);
   loadPresentations();
 }
-
-loadPresentations();
